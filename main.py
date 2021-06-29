@@ -13,7 +13,7 @@ res.raise_for_status()
 soup = bs4.BeautifulSoup(res.text, "html.parser")
 date = soup.select_one('caption.tbl__caption.tlft.pl10.pt5.pb5.fs-s.fbd').text
 elmIndTbl = soup.select_one('.tbl-border.tbl-fixed.tbl-alternate.mt5.mb5')
-lineMsg = date + "の経済指標です\n"
+lineMsg = date + "縺ｮ邨梧ｸ域欠讓吶〒縺兔n"
 for i in elmIndTbl.select('tr'):
     impCnt = 0
     if i.select_one('td.eilist__time span') != None:
@@ -23,7 +23,7 @@ for i in elmIndTbl.select('tr'):
                 impCnt += 1
         
         lineMsg += i.select_one('td.eilist__time').text.replace("\n","") + " "
-        lineMsg += "重要度" + str(impCnt) + "\n"
+        lineMsg += "驥崎ｦ∝ｺｦ" + str(impCnt) + "\n"
         lineMsg += i.select_one('p.flexbox__grow.fbd').text.replace("\n","") + "\n"
         
 lineMsg += indURL
