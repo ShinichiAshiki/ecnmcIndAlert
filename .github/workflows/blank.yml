@@ -5,7 +5,7 @@ name: Economic indicator
 
 on:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '0 23 * * *'
 
 jobs:
   build:
