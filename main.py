@@ -25,6 +25,7 @@ for i in elmIndTbl.select('tr'):
         lineMsg += i.select_one('td.eilist__time').text.replace("\n","") + " "
         lineMsg += "重要度" + str(impCnt) + "\n"
         lineMsg += i.select_one('p.flexbox__grow.fbd').text.replace("\n","") + "\n"
+        lineMsg += "------------------------------------------------------------\n"
         
 lineMsg += indURL
 messages = linebot.models.TextSendMessage(text = lineMsg)
