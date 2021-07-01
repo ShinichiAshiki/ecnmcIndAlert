@@ -21,11 +21,11 @@ for i in elmIndTbl.select('tr'):
         for j in i.select('img.i-star'):
             if "Star fill" in j.attrs['alt']:
                 impCnt += 1
-        
-        lineMsg += i.select_one('td.eilist__time').text.replace("\n","") + " "
-        lineMsg += "重要度" + str(impCnt) + "\n"
-        lineMsg += i.select_one('p.flexbox__grow.fbd').text.replace("\n","") + "\n"
-        lineMsg += "------------------------------------------------------------\n"
+        if impCnt >= 3:
+            lineMsg += i.select_one('td.eilist__time').text.replace("\n","") + " "
+            lineMsg += "重要度" + str(impCnt) + "\n"
+            lineMsg += i.select_one('p.flexbox__grow.fbd').text.replace("\n","") + "\n"
+            lineMsg += "---------------------------------\n"
         
 lineMsg += indURL
 messages = linebot.models.TextSendMessage(text = lineMsg)
